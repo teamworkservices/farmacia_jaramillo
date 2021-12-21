@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  username:string = 'El usuario';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  logOut() {
+    alert("Cerrando Sesión...");
   }
 
 }
