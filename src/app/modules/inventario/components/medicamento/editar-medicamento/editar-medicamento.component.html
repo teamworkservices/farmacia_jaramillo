@@ -1,0 +1,138 @@
+<form [formGroup]="form" (ngSubmit)="editarMedicamento()">
+  <mat-grid-list cols="2" rowHeight="75px">
+
+    <mat-grid-tile [colspan]="2">
+      <span><strong>EDITAR MEDICAMENTO</strong></span>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-label>NOMBRE LABORATORIO:</mat-label>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field appearance="fill" hintLabel="Max 20 caracteres">
+        <input
+          matInput
+          #input
+          maxlength="20"
+          autocomplete="off"
+          formControlName="nombreCtrl"
+        />
+        <mat-hint align="end"> {{ input.value?.length || 0 }}/20</mat-hint>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-label>PRECIO:</mat-label>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field appearance="fill" hintLabel="Max 10 caracteres">
+        <input
+          matInput
+          #input
+          autocomplete="off"
+          formControlName="precioCtrl"
+        />
+        <mat-hint align="end"> {{ input.value?.length || 0 }}/10</mat-hint>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-label>CANTIDAD:</mat-label>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field appearance="fill" hintLabel="Max 4 caracteres">
+        <input
+          matInput
+          #input
+          maxlength="4"
+          autocomplete="off"
+          formControlName="cantidadCtrl"
+        />
+        <mat-hint align="end"> {{ input.value?.length || 0 }}/4</mat-hint>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-label>CÓDIGO DE BARRAS:</mat-label>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field appearance="fill" hintLabel="Max 15 caracteres">
+        <input
+          matInput
+          #input
+          maxlength="15"
+          autocomplete="off"
+          formControlName="codBarrasCtrl"
+        />
+        <mat-hint align="end"> {{ input.value?.length || 0 }}/10</mat-hint>
+      </mat-form-field>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-label>CÓDIGO DE COMPRA:</mat-label>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field appearance="fill" hintLabel="Max 15 caracteres">
+        <input
+          matInput
+          #input
+          maxlength="15"
+          autocomplete="off"
+          formControlName="codCompraCtrl"
+        />
+        <mat-hint align="end"> {{ input.value?.length || 0 }}/15</mat-hint>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-label>DOSIFICACIÓN:</mat-label>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field appearance="fill">
+        <mat-label>--</mat-label>
+        <mat-select formControlName="dosificacionCtrl" name="dosificacion">
+          <mat-option *ngFor="let dosificacion of dataDosificaciones" [value]="dosificacion.id">
+            {{dosificacion.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-label>LABORATORIO:</mat-label>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field appearance="fill">
+        <mat-label>--</mat-label>
+        <mat-select formControlName="laboratorioCtrl" name="laboratorio">
+          <mat-option *ngFor="let lab of dataLaboratorios" [value]="lab.id">
+            {{lab.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <button
+        [disabled]="form.invalid"
+        color="primary"
+        mat-button
+        (click)="confirmModal()"
+        mat-raised-button
+        type="submit"
+      >
+        <mat-icon>save</mat-icon>
+        ACTUALIZAR
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
