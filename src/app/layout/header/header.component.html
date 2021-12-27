@@ -15,15 +15,15 @@
   </mat-grid-tile>
 
   <!--Space of one column-->
-  <mat-grid-tile colspan="1"> </mat-grid-tile>
+  <mat-grid-tile colspan="2"> </mat-grid-tile>
 
   <!--Username and Logout-->
-  <mat-grid-tile colspan="3">
+  <mat-grid-tile colspan="2">
     <mat-grid-list cols="1" rowHeight="30px" class="mat-list-full">
       <mat-grid-tile>
         <a>
-          <mat-icon class="green">account_box</mat-icon
-          ><span class="text-log"> {{ username }} </span>
+          <mat-icon class="green">account_box</mat-icon>
+          <span class="text-log"> {{ username }} </span>
         </a>
       </mat-grid-tile>
       <mat-grid-tile>
@@ -41,6 +41,6 @@
   <nav mat-tab-nav-bar ngClass="tabs">
     <a mat-tab-link routerLink="/pages/inventario">HOME</a>
     <a mat-tab-link routerLink="/pages/inventario/dosificacion">Dosificación</a>
-    <a mat-tab-link routerLink="/pages/home">Laboratorio</a>
+    <a mat-tab-link routerLink="/pages/inventario/laboratorio">Laboratorio</a>
   </nav>
 </div>
