@@ -6,19 +6,19 @@
     </mat-grid-tile>
 
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <mat-label>NOMBRE LABORATORIO:</mat-label>
+      <mat-label>NOMBRE:</mat-label>
     </mat-grid-tile>
 
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-form-field appearance="fill" hintLabel="Max 20 caracteres">
         <input
           matInput
-          #input
+          #inputNombre
           maxlength="20"
           autocomplete="off"
           formControlName="nombreCtrl"
         />
-        <mat-hint align="end"> {{ input.value?.length || 0 }}/20</mat-hint>
+        <mat-hint align="end"> {{ inputNombre.value?.length || 0 }}/20</mat-hint>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -30,11 +30,11 @@
       <mat-form-field appearance="fill" hintLabel="Max 10 caracteres">
         <input
           matInput
-          #input
+          #inputPrecio
           autocomplete="off"
           formControlName="precioCtrl"
         />
-        <mat-hint align="end"> {{ input.value?.length || 0 }}/10</mat-hint>
+        <mat-hint align="end"> {{ inputPrecio.value?.length || 0 }}/10</mat-hint>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -46,12 +46,12 @@
       <mat-form-field appearance="fill" hintLabel="Max 4 caracteres">
         <input
           matInput
-          #input
+          #inputCantidad
           maxlength="4"
           autocomplete="off"
           formControlName="cantidadCtrl"
         />
-        <mat-hint align="end"> {{ input.value?.length || 0 }}/4</mat-hint>
+        <mat-hint align="end"> {{ inputCantidad.value?.length || 0 }}/4</mat-hint>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -63,12 +63,12 @@
       <mat-form-field appearance="fill" hintLabel="Max 15 caracteres">
         <input
           matInput
-          #input
+          #inputCodBarras
           maxlength="15"
           autocomplete="off"
           formControlName="codBarrasCtrl"
         />
-        <mat-hint align="end"> {{ input.value?.length || 0 }}/10</mat-hint>
+        <mat-hint align="end"> {{ inputCodBarras.value?.length || 0 }}/10</mat-hint>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -81,12 +81,12 @@
       <mat-form-field appearance="fill" hintLabel="Max 15 caracteres">
         <input
           matInput
-          #input
+          #inputCodCompra
           maxlength="15"
           autocomplete="off"
           formControlName="codCompraCtrl"
         />
-        <mat-hint align="end"> {{ input.value?.length || 0 }}/15</mat-hint>
+        <mat-hint align="end"> {{ inputCodCompra.value?.length || 0 }}/15</mat-hint>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -98,7 +98,7 @@
       <mat-form-field appearance="fill">
         <mat-label>--</mat-label>
         <mat-select formControlName="dosificacionCtrl" name="dosificacion">
-          <mat-option *ngFor="let dosificacion of dataDosificaciones" [value]="dosificacion.id">
+          <mat-option *ngFor="let dosificacion of dataDosificaciones" [value]="dosificacion.nombre">
             {{dosificacion.nombre}}
           </mat-option>
         </mat-select>
@@ -113,13 +113,12 @@
       <mat-form-field appearance="fill">
         <mat-label>--</mat-label>
         <mat-select formControlName="laboratorioCtrl" name="laboratorio">
-          <mat-option *ngFor="let lab of dataLaboratorios" [value]="lab.id">
+          <mat-option *ngFor="let lab of dataLaboratorios" [value]="lab.nombre">
             {{lab.nombre}}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </mat-grid-tile>
-
 
     <mat-grid-tile [colspan]="2" [rowspan]="1">
       <button
@@ -131,7 +130,7 @@
         type="submit"
       >
         <mat-icon>save</mat-icon>
-        ACTUALIZAR
+        GUARDAR
       </button>
     </mat-grid-tile>
   </mat-grid-list>
