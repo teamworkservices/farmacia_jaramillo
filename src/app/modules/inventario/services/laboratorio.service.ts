@@ -4,7 +4,6 @@ import { Laboratorio } from 'src/app/shared/models/laboratorio';
 @Injectable({
   providedIn: 'root',
 })
-
 export class LaboratorioService {
   laboratorioData: Laboratorio[] = [
     { id: 1, nombre: 'MK', codigo: 'MK' },
@@ -34,5 +33,10 @@ export class LaboratorioService {
 
   eliminarLaboratorio(id: number) {
     this.laboratorioData = this.laboratorioData.filter((item) => item.id != id);
+  }
+
+  getLaboratorioById(id: number) {
+    let indexLab = this.laboratorioData.findIndex((item) => item.id == id);
+    return this.laboratorioData[indexLab];
   }
 }

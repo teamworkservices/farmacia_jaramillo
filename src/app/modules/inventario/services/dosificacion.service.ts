@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class DosificacionService {
   dosificacionData: Dosificacion[] = [
     { id: 1, nombre: 'Hydrogen', descripcion: 'Descripcion', codigo: 'H' },
-    { id: 2, nombre: 'Hdro', descripcion: 'ututut', codigo: 'H' },
+    { id: 2, nombre: 'Hydro', descripcion: 'ututut', codigo: 'H' },
     { id: 3, nombre: 'Hogen', descripcion: 'kjksss', codigo: 'H' },
   ];
 
