@@ -42,4 +42,12 @@ export class DosificacionService {
       (item) => item.id != id
     );
   }
+
+  getDosificacionesFilter(input: string): Dosificacion[] {
+    return this.dosificacionData.filter(
+      (element) =>
+        element.nombre.toLowerCase().includes(input.toLowerCase()) ||
+        element.codigo.toLowerCase().includes(input.toLowerCase())
+    );
+  }
 }
