@@ -18,6 +18,8 @@ export class DosificacionComponent implements OnInit {
 
   dataSource!: MatTableDataSource<Dosificacion>;
 
+  dosificacionEmitida: Dosificacion = new Dosificacion();
+
   constructor(
     public dialog: MatDialog,
     public dosificacionService: DosificacionService
@@ -75,8 +77,12 @@ export class DosificacionComponent implements OnInit {
       if (result.isConfirmed) {
         this.dosificacionService.eliminarDosificacion(dosificacion.id);
         this.loadTableDosificacion();
-        Swal.fire('Saved!', '', 'success');
+        Swal.fire('¡Dosificación eliminada exitosamente!', '', 'success');
       }
     });
+  }
+
+  setDosificacionSeleccionada(dosificacion: Dosificacion){
+    this.dosificacionEmitida = dosificacion;
   }
 }
